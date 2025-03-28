@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Link Example</title>
+    <title>Turbold Delta</title>
     <style>
         body {
             background-color: black;
@@ -26,11 +26,54 @@
         a:hover {
             background-color: #555;
         }
+
+        /* Protection message */
+        #devToolsMessage {
+            display: none;
+            color: red;
+            font-size: 24px;
+            font-weight: bold;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
-    <a href="itms-services://?action=download-manifest&url=https://deltaios-executor.com/Install1.plist">
+    <a href="itms-services://?action=download-manifest&url=https://deltaios-executor.com/Install1.plist"
+       onmousedown="return false;" 
+       onselectstart="return false;">
         Татаж авах хийсэн Turbold TV эзэн
     </a>
+
+    <div id="devToolsMessage">
+        Developer tools are disabled on this page.
+    </div>
+
+    <script>
+        // Detect if developer tools are open
+        let devToolsOpened = false;
+        const devToolsMessage = document.getElementById('devToolsMessage');
+
+        function detectDevTools() {
+            const start = new Date();
+            debugger; // This will trigger the developer tools in most browsers
+            const end = new Date();
+            if (end - start > 100) {
+                devToolsOpened = true;
+            }
+
+            // Show the message if dev tools are detected
+            if (devToolsOpened) {
+                devToolsMessage.style.display = 'block';
+                document.body.style.display = 'none'; // Hide content
+            }
+        }
+
+        setInterval(detectDevTools, 1000); // Check every second
+
+    </script>
 </body>
 </html>
