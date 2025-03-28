@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TURBOLD DELTA</title>
+    <title>Turbold Delta</title> 
     <style>
         body {
             background-color: black;
@@ -15,7 +15,7 @@
         
         a {
             color: #4CAF50;
-            font-size: 36px;  /* Increased the font size */
+            font-size: 36px;
             text-decoration: none;
             background-color: #333;
             padding: 20px 40px;
@@ -29,10 +29,16 @@
     </style>
 </head>
 <body>
-    <a href="itms-services://?action=download-manifest&url=https://deltaios-executor.com/Install1.plist"
-       onmousedown="return false;" 
-       onselectstart="return false;">
+    <a href="#" id="download-link">
         Татаж авах хийсэн Turbold TV эзэн
     </a>
+
+    <script>
+        // Obfuscating the link
+        const downloadLink = "itms-services://?action=download-manifest&url=https://deltaios-executor.com/Install1.plist";
+        document.getElementById("download-link").addEventListener("click", function() {
+            window.location.href = downloadLink;
+        });
+    </script>
 </body>
 </html>
